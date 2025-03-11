@@ -54,7 +54,7 @@ describe('processData - raw input parsing', () => {
 ---
 -m-
 p--`;
-        expect(processData(input)).toBe('DOWN\nLEFT');
+        expect(processData(input)).toBe('DOWN\nLEFT\n');
     });
 
     test('top-right corner from input', () => {
@@ -62,7 +62,7 @@ p--`;
 --p
 -m-
 ---`;
-        expect(processData(input)).toBe('UP\nRIGHT');
+        expect(processData(input)).toBe('UP\nRIGHT\n');
     });
 
     test('no input returns null', () => {

@@ -8,20 +8,27 @@ function displayPathtoPrincess(dimension, grid) {
     let princessRow = -1;
     let princessCol = -1;
 
-    // Check the four corners
+    // Define the four corners
     const corners = [
         [0, 0],
         [0, dimension - 1],
         [dimension - 1, 0],
         [dimension - 1, dimension - 1]
     ];
-
+    // Check if the princess is in any of the corners
+    let foundPrincess = false;
+    //Check the corners
     for (let [r, c] of corners) {
         if (grid[r][c] === 'p') {
             princessRow = r;
             princessCol = c;
+            foundPrincess = true;
             break;
         }
+    }
+    // If the princess is not found in any corner, return null
+    if (!foundPrincess) {
+        return null;
     }
 
     const rowMoves = princessRow - center;

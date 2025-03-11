@@ -11,4 +11,5 @@ function processData(input) {
 
     return displayPathtoPrincess(dimension, grid);
 }
-processData(input);
+
+module.exports = { processData, displayPathtoPrincess };
