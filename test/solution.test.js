@@ -3,22 +3,22 @@ const { processData, displayPathtoPrincess } = require('../index');
 describe('displayPathtoPrincess - valid corners', () => {
     test('top-left corner', () => {
         const grid = ['p--', '-m-', '---'];
-        expect(displayPathtoPrincess(3, grid)).toEqual(['UP', 'LEFT']);
+        expect(displayPathtoPrincess(3, grid)).toBe('UP\nLEFT\n');
     });
 
     test('top-right corner', () => {
         const grid = ['--p', '-m-', '---'];
-        expect(displayPathtoPrincess(3, grid)).toEqual(['UP', 'RIGHT']);
+        expect(displayPathtoPrincess(3, grid)).toBe('UP\nRIGHT\n');
     });
 
     test('bottom-left corner', () => {
         const grid = ['---', '-m-', 'p--'];
-        expect(displayPathtoPrincess(3, grid)).toEqual(['DOWN', 'LEFT']);
+        expect(displayPathtoPrincess(3, grid)).toBe('DOWN\nLEFT\n');
     });
 
     test('bottom-right corner', () => {
         const grid = ['---', '-m-', '--p'];
-        expect(displayPathtoPrincess(3, grid)).toEqual(['DOWN', 'RIGHT']);
+        expect(displayPathtoPrincess(3, grid)).toBe('DOWN\nRIGHT\n');
     });
 
     test('larger 5x5 bottom-left', () => {
@@ -29,7 +29,7 @@ describe('displayPathtoPrincess - valid corners', () => {
             '-----',
             'p----'
         ];
-        expect(displayPathtoPrincess(5, grid)).toEqual(['DOWN', 'DOWN', 'LEFT', 'LEFT']);
+        expect(displayPathtoPrincess(5, grid)).toBe('DOWN\nDOWN\nLEFT\nLEFT\n');
     });
 });
 
@@ -54,7 +54,7 @@ describe('processData - raw input parsing', () => {
 ---
 -m-
 p--`;
-        expect(processData(input)).toEqual(['DOWN', 'LEFT']);
+        expect(processData(input)).toBe('DOWN\nLEFT');
     });
 
     test('top-right corner from input', () => {
@@ -62,7 +62,7 @@ p--`;
 --p
 -m-
 ---`;
-        expect(processData(input)).toEqual(['UP', 'RIGHT']);
+        expect(processData(input)).toBe('UP\nRIGHT');
     });
 
     test('no input returns null', () => {

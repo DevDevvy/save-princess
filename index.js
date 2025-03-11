@@ -9,6 +9,6 @@ function processData(input) {
         grid.push(lines[i].trim());
     }
 
-    displayPathtoPrincess(dimension, grid);
+    return displayPathtoPrincess(dimension, grid);
 }
 processData(input);
