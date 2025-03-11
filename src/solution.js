@@ -1,8 +1,10 @@
 //solution function to display the path to reach the princess
 //TODO: copy this function's code into hackerrank to run the problem
 function displayPathtoPrincess(dimension, grid) {
+    //find the center of the grid
     const center = Math.floor(dimension / 2);
 
+    // Check if the grid is valid
     if (!Array.isArray(grid) || grid.length === 0) return null;
 
     let princessRow = -1;
@@ -33,6 +35,8 @@ function displayPathtoPrincess(dimension, grid) {
 
     const rowMoves = princessRow - center;
     const colMoves = princessCol - center;
+
+    //define movesString to store the moves in a single string
     let movesString = ''
 
     // Print vertical moves

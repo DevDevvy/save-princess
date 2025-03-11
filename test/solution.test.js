@@ -1,5 +1,6 @@
 const { processData, displayPathtoPrincess } = require('../index');
 
+//Regular corners testing
 describe('displayPathtoPrincess - valid corners', () => {
     test('top-left corner', () => {
         const grid = ['p--', '-m-', '---'];
@@ -33,6 +34,7 @@ describe('displayPathtoPrincess - valid corners', () => {
     });
 });
 
+//Edge cases
 describe('displayPathtoPrincess - invalid input', () => {
     test('no princess (p) in grid returns null', () => {
         const grid = ['---', '-m-', '---'];
@@ -46,8 +48,10 @@ describe('displayPathtoPrincess - invalid input', () => {
     test('undefined grid returns null', () => {
         expect(displayPathtoPrincess(3, undefined)).toBeNull();
     });
+
 });
 
+//Input parsing and edge cases
 describe('processData - raw input parsing', () => {
     test('valid input returns correct moves', () => {
         const input = `3
@@ -81,4 +85,34 @@ p--`;
 -m-`;
         expect(processData(input)).toBeNull();
     });
+
+    test('non-numeric dimension returns null', () => {
+        const input = `abc
+    p--
+    -m-
+    ---`;
+        expect(processData(input)).toBeNull();
+    });
+
+    test('zero dimension returns null', () => {
+        const input = `0`;
+        expect(processData(input)).toBeNull();
+    });
+
+    test('negative dimension returns null', () => {
+        const input = `-3
+    p--
+    -m-
+    ---`;
+        expect(processData(input)).toBeNull();
+    });
+
+    test('multiple princesses in corners returns correct path to first one', () => {
+        const input = `3
+    p-- 
+    -m-
+    --p`;
+        expect(processData(input)).toBe('UP\nLEFT\n');
+    });
+
 });
