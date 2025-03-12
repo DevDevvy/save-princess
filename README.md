@@ -64,8 +64,8 @@ npm test
          [dimension - 1, 0],
          [dimension - 1, dimension - 1]
      ];
+
      // Check if the princess is in any of the corners
-     //Check the corners
      for (let [r, c] of corners) {
          if (grid[r][c] === 'p') {
              princessRow = r;
@@ -73,6 +73,7 @@ npm test
              break;
          }
      }
+
      // If the princess is not found in any corner, return null
      if (princessRow === -1 || princessCol === -1) {
          return null;
@@ -84,13 +85,13 @@ npm test
      //define movesString to store the moves in a single string
      let movesString = ''
 
-     // Print vertical moves
+     // Concat vertical moves
      const vertical = rowMoves < 0 ? 'UP\n' : 'DOWN\n';
      for (let i = 0; i < Math.abs(rowMoves); i++) {
          movesString += vertical
      }
 
-     // Print horizontal moves
+     // Concat horizontal moves
      const horizontal = colMoves < 0 ? 'LEFT\n' : 'RIGHT\n';
      for (let i = 0; i < Math.abs(colMoves); i++) {
          movesString += horizontal
