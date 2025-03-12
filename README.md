@@ -2,7 +2,7 @@
 
 This project contains a solution to the classic [HackerRank "Bot Saves Princess"](https://www.hackerrank.com/challenges/saveprincess) problem using JavaScript.
 
-The project aim is to help the bot (`m`) find the shortest path to a princess (`p`) who is supposed to be in one of the four corners of the grid.
+The project aim is to help the bot (`m`) find the shortest path to a princess (`p`) who is supposed to be in one of the four corners of the grid. The problem states the princess will be in one of the 4 corners, so the logic checks all 4 corners to find the princess without needing to iterate through the grid.
 
 ## Problem Summary
 

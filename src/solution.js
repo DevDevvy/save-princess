@@ -7,6 +7,7 @@ function displayPathtoPrincess(dimension, grid) {
     // Check if the grid is valid
     if (!Array.isArray(grid) || grid.length === 0) return null;
 
+    //Initiates the princess row and column as -1 to check if the princess is found
     let princessRow = -1;
     let princessCol = -1;
 
@@ -18,18 +19,16 @@ function displayPathtoPrincess(dimension, grid) {
         [dimension - 1, dimension - 1]
     ];
     // Check if the princess is in any of the corners
-    let foundPrincess = false;
     //Check the corners
     for (let [r, c] of corners) {
         if (grid[r][c] === 'p') {
             princessRow = r;
             princessCol = c;
-            foundPrincess = true;
             break;
         }
     }
     // If the princess is not found in any corner, return null
-    if (!foundPrincess) {
+    if (princessRow === -1 || princessCol === -1) {
         return null;
     }
 
